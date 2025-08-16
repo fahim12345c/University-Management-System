@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Main extends JFrame implements ActionListener {
-    JMenuItem ex,calculator,notepad, studentInformation,facultyInformation;
+    JMenuItem ex,calculator,notepad, studentInformation,facultyInformation,facultyDetails,studentDetails;
     Main(){
         setSize(1540,720);
         ImageIcon i1= new ImageIcon(ClassLoader.getSystemResource("icons/RU1.jpg"));
@@ -30,11 +30,13 @@ public class Main extends JFrame implements ActionListener {
         details.setForeground(Color.BLUE);
         menu.add(details);
 
-        JMenuItem facultyDetails= new JMenuItem("Faculty Details");
+        facultyDetails= new JMenuItem("Faculty Details");
+        facultyDetails.addActionListener(this);
         details.add(facultyDetails);
         JMenuItem departmentDetails= new JMenuItem("Department Details");
         details.add(departmentDetails);
-        JMenuItem studentDetails= new JMenuItem("Student Details");
+        studentDetails= new JMenuItem("Student Details");
+        studentDetails.addActionListener(this);
         details.add(studentDetails);
 
         JMenu examDetails = new JMenu("Exam Details");
@@ -151,6 +153,16 @@ public class Main extends JFrame implements ActionListener {
         {
             setVisible(false);
             new AddTeacher();
+        }
+        else if(actionEvent.getSource()==studentDetails)
+        {
+            setVisible(false);
+            new StudentDetails();
+        }
+        else if(actionEvent.getSource()==facultyDetails)
+        {
+            setVisible(false);
+            new TeacherDetails();
         }
     }
 
