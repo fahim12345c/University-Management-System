@@ -107,7 +107,7 @@ public class AddTeacher extends JFrame implements ActionListener {
             }
             else {
                 int age=Integer.parseInt(ag);
-                String sql = "insert into Teacher  ( teacher_name,phone,age,email,address,department) values (?,?,?,?,?,?)";
+                String sql = "insert into Teacher  (name,phone,age,email,address,department) values (?,?,?,?,?,?)";
                 try {
                     Connect c= new Connect();
                     PreparedStatement statement=c.con.prepareStatement(sql);

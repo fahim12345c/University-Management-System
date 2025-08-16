@@ -119,6 +119,7 @@ public class StudentDetails extends JFrame implements ActionListener {
         }
         else if(actionEvent.getSource()==cancel){
             setVisible(false);
+            new Main();
         }
     }
 

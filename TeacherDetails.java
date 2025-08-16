@@ -32,11 +32,11 @@ public class TeacherDetails extends JFrame implements ActionListener {
             Connect c = new Connect();
 
             // fill dropdown
-            String sql = "SELECT teacher_name FROM Teacher"; // ✅ check column name in your table
+            String sql = "SELECT name FROM Teacher"; // ✅ check column name in your table
             PreparedStatement stat = c.con.prepareStatement(sql);
             ResultSet res = stat.executeQuery();
             while (res.next()) {
-                choiceName.add(res.getString("teacher_name"));
+                choiceName.add(res.getString("name"));
             }
 
             // fill table
@@ -87,7 +87,7 @@ public class TeacherDetails extends JFrame implements ActionListener {
 
             try {
                 Connect c = new Connect();
-                String sql = "select * from Teacher where teacher_name = ?";
+                String sql = "select * from Teacher where name = ?";
                 PreparedStatement stat = c.con.prepareStatement(sql);
                 stat.setString(1,choiceName.getSelectedItem());
                 ResultSet res = stat.executeQuery();
@@ -119,6 +119,7 @@ public class TeacherDetails extends JFrame implements ActionListener {
         }
         else if(actionEvent.getSource()==cancel){
             setVisible(false);
+            new Main();
         }
     }
 

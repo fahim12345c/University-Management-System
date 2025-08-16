@@ -104,13 +104,4 @@ public class Login extends JFrame implements ActionListener {
         new Login();
     }
 
-
-    public class AddStudent extends JFrame {
-
-        AddStudent(){
-            setSize(600,600);
-            setLocation(100,100);
-            setVisible(true);
-        }
-    }
 }
